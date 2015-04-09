@@ -1,0 +1,55 @@
+.container
+  .page-header
+    %h2 #{current_user.full_name}, Add a New Wine to Your Inventory
+  = form_for @wine do |f|
+
+    .form-group
+
+      = f.label :bottle_name, class: "control-label"
+      = f.text_field :bottle_name, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :bottle_year, class: "control-label"
+      = f.text_field :bottle_year, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :grape_type, class: "control-label"
+      = f.text_field :grape_type, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :bottle_rating, class: "control-label"
+      = f.text_field :bottle_rating, class: "form-control"
+
+    %br
+
+    .form-group
+      = f.label :taste, class: "control-label"
+      = f.text_field :taste, class: "form-control"
+    %br
+
+    .form-group
+      = f.label :price, class: "control-label"
+      = f.number_field :price, class: "form-control"
+
+    %br
+
+    .form-group
+      = f.label :winery_name, class: "control-label"
+      = f.text_field :winery_name, class: "form-control"
+
+    %br
+
+    .form-group
+      = f.label :amount, class: "control-label"
+      = f.number_field :amount, class: "form-control"
+
+    .form-group
+
+      = f.submit class: "btn btn-danger"
+      = link_to "Cancel", wines_path, class: "btn btn-success"

@@ -1,0 +1,18 @@
+.container
+  .page-header
+    = link_to "Edit Region Information", edit_region_path(@region), class: "btn btn-danger pull-right"
+    = link_to "Delete Region", region_path(@region), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+    %h1
+      = @region.region_name
+    = link_to "Go Back", regions_path, class: "btn btn-primary pull-right"
+    %h3
+      = @region.location
+
+  %table.table
+    %thead
+      %tr
+        %th
+          Winery Name
+        %th{colspan:2}
+          Winery Location
+    %tbody

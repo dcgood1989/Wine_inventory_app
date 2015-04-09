@@ -1,0 +1,20 @@
+.container
+  .page-header
+    %h1 Sign in to Wine-o
+
+  = form_tag sign_in_path class: "form" do |f|
+
+    .form-group
+
+      = label_tag :email, nil, class: "control-label"
+      = email_field_tag :email, nil, class: "form-control"
+    %br
+    .form-group
+
+      = label_tag :password, nil, class: "control-label"
+      = password_field_tag :password, nil, class: "form-control"
+    %br
+
+    .form-group
+
+      = submit_tag "Sign In to Wine-o", class: "btn btn-danger"

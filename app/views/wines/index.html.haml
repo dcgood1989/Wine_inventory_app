@@ -1,0 +1,37 @@
+.container
+  =link_to "Add New Wine", new_wine_path, class: "btn btn-danger margin-top-button pull-right"
+  %h1
+    = "#{current_user.full_name}'s Wine List"
+
+  %table.table
+    %thead
+      %tr
+        %th Wine Name
+        %th Grape Type
+        %th Taste
+        %th Bottle Rating
+        %th Year Bottled
+        %th Winery Name
+        %th Number of Bottles
+    %tbody
+      - @wines.each do |wine|
+
+        %tr
+          %td
+            = link_to wine.bottle_name, wine_path(wine)
+          %td
+            = wine.grape_type
+          %td
+            = wine.taste
+          %td
+            = wine.bottle_rating
+          %td
+            = wine.bottle_year
+          %td
+            = wine.winery_name
+          %td
+            = wine.amount
+          %td
+            = link_to "Delete Wine", wine_path(wine), method: :delete, data: {confirm: "You Sure?"}
+          %td
+            = link_to "Edit Wine Information", edit_wine_path(wine)

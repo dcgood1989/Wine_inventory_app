@@ -1,0 +1,12 @@
+.container
+  .page-header
+    = link_to "Edit Winery Information", edit_winery_path(@winery), class: "btn btn-danger pull-right"
+    = link_to "Delete", winery_path(@winery), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+    %h1
+      = @winery.winery_name
+    = link_to "Go Back", wineries_path, class: "btn btn-primary pull-right"
+    %h3
+      = @winery.location
+
+  %h4
+    = "#{@winery.rating} Stars out of 10"

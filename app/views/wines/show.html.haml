@@ -1,0 +1,8 @@
+.container
+  .page-header
+    %h1
+      ="#{current_user.full_name} "
+      = link_to "Edit Wine Information", edit_wine_path(@wine), class: "btn btn-danger pull-right"
+      = link_to "Delete", wine_path(@wine), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+
+      = link_to "Go Back", wines_path, class: "btn btn-primary pull-right"

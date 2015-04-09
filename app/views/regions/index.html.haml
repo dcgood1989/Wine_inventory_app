@@ -1,0 +1,31 @@
+.container
+  =link_to "Add New Region", new_region_path, class: "btn btn-danger margin-top-button pull-right"
+  %h1
+    #{current_user.full_name} Regions
+
+
+
+
+
+  %table.table
+    %thead
+      %tr
+        %th
+          Region Name
+        %th{colspan:2}
+          Region State
+        %th
+          Region Country
+          %th
+    %tbody
+      - @regions.each do |region|
+        %tr
+          %td
+            = link_to region.region_name, region_path(region)
+          %td
+            = region.state
+          %td
+            = region.country
+          %td
+            = link_to "Delete Region", region_path(region), class: "btn btn-danger pull-right",  method: :delete
+            = link_to "Edit Region", edit_region_path(region), class: "btn btn-primary pull-right"

@@ -1,0 +1,32 @@
+.container
+  %h2
+    Edit #{@winery.winery_name} Winery
+  = form_for @winery do |f|
+    .form-group
+
+      = f.label :winery_name, class: "control-label"
+      = f.text_field :winery_name, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :region, class: "control-label"
+      = f.text_field :region, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :state, class: "control-label"
+      = f.text_field :state, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.label :rating, class: "control-label"
+      = f.number_field :rating, class: "form-control"
+    %br
+
+    .form-group
+
+      = f.submit class: "btn btn-danger"
+      = link_to "Cancel", class: "btn btn-success"
