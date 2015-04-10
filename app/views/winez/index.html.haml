@@ -1,0 +1,37 @@
+.container
+  %h1
+    = "#{current_user.full_name}'s Complete Wine List"
+
+    %table.table
+      %thead
+        %tr
+          %th Wine Name
+          %th Grape Type
+          %th Taste
+          %th Bottle Rating
+          %th Year Bottled
+          %th Winery Name
+          %th Number of Bottles
+      %tbody
+
+
+      %tbody
+        - @wineries.each do |winery|
+          - winery.wines.each do |wine|
+            %tr
+              %td
+                = link_to wine.bottle_name, region_winery_wines_path(@region, winery)
+
+              %td
+                = wine.grape_type
+              %td
+                = wine.taste
+              %td
+                = wine.bottle_rating
+              %td
+                = wine.bottle_year
+              %td
+                = wine.winery_name
+              %td
+                = wine.amount
+            

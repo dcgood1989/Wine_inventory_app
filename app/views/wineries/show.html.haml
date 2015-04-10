@@ -1,12 +1,36 @@
 .container
   .page-header
-    = link_to "Edit Winery Information", edit_winery_path(@winery), class: "btn btn-danger pull-right"
-    = link_to "Delete", winery_path(@winery), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+
+    = link_to "Edit Winery Information", edit_region_winery_path(@region, @winery), class: "btn btn-danger pull-right"
+    = link_to "Delete", region_winery_path(@region, @winery), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
     %h1
       = @winery.winery_name
-    = link_to "Go Back", wineries_path, class: "btn btn-primary pull-right"
+    = link_to "Add New Wine to Winery", new_region_winery_wine_path(@region, @winery, @wine), class: "btn btn-danger pull-right"
+    = link_to "Go Back to Winery List", region_wineries_path, class: "btn btn-primary pull-right"
     %h3
-      = @winery.location
+      = @winery.state
 
-  %h4
-    = "#{@winery.rating} Stars out of 10"
+    %h4
+      = "#{@winery.rating} Stars out of 10"
+    %h2 Winery Comments
+    .comments
+      - @winery.winery_comments.each do |comment|
+        .row
+          .col-md-3
+            .row
+              .col-md-12
+                = link_to @winery_comments
+            .row
+              .col-md-12.txt-muted
+                = time_ago_in_words(comment.created_at) + " ago"
+          .col-md-9
+            %p= comment.content
+          %br
+
+    = form_for [@region, @winery, @winery_comment], html: {class: 'form-horizontal'} do |f|
+      .form-group
+        .col-md-offset-3.col-md-9
+          = f.text_area :content, class: 'form-control'
+      .form-group
+        .col-md-offset-3.col-md-7
+          = f.submit 'Add Comment', class: 'btn btn-primary'

@@ -5,14 +5,29 @@
     %h1
       = @region.region_name
     = link_to "Go Back", regions_path, class: "btn btn-primary pull-right"
+    = link_to "Add New Winery to Region", new_region_winery_path(@region), class: "btn btn-primary pull-right"
     %h3
       = @region.location
 
-  %table.table
-    %thead
-      %tr
-        %th
-          Winery Name
-        %th{colspan:2}
-          Winery Location
-    %tbody
+  %h2 Region Comments
+  .comments
+    - @region.region_comments.each do |comment|
+      .row
+        .col-md-3
+          .row
+            .col-md-12
+              = link_to @region_comments
+          .row
+            .col-md-12.txt-muted
+              = time_ago_in_words(comment.created_at) + " ago"
+        .col-md-9
+          %p= comment.content
+        %br
+
+  = form_for [@region, @region_comment], html: {class: 'form-horizontal'} do |f|
+    .form-group
+      .col-md-offset-3.col-md-9
+        = f.text_area :content, class: 'form-control'
+    .form-group
+      .col-md-offset-3.col-md-7
+        = f.submit 'Add Comment', class: 'btn btn-primary'

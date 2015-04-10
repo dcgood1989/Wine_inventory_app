@@ -9,17 +9,16 @@ Rails.application.routes.draw do
   post '/sign-in' => 'authentication#create'
 
   resources :users
+  resources :wineriez
+  resources :winez
 
   resources :regions do
     resources :region_comments
+    resources :wineries do
+      resources :winery_comments
+      resources :wines do
+        resources :wine_comments
+      end
+    end
   end
-
-  resources :wines do
-    resources :wine_comments
-  end
-
-  resources :wineries do
-    resources :winery_comments
-  end
-
 end

@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "You have successfully signed into Wine-O"
-      redirect_to wineries_path
+      redirect_to regions_path
     else
       flash[:notice] = "User could not be authenticated."
       render :new

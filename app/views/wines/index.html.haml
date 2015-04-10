@@ -1,7 +1,8 @@
 .container
-  =link_to "Add New Wine", new_wine_path, class: "btn btn-danger margin-top-button pull-right"
+  =link_to "Add New Wine", new_region_winery_wine_path, class: "btn btn-danger margin-top-button pull-right"
+  = link_to "Back to Winery", region_wineries_path
   %h1
-    = "#{current_user.full_name}'s Wine List"
+    = "#{current_user.full_name}'s Wine List for  #{@region.region_name}"
 
   %table.table
     %thead
@@ -18,7 +19,7 @@
 
         %tr
           %td
-            = link_to wine.bottle_name, wine_path(wine)
+            = link_to wine.bottle_name, region_winery_wine_path(@region, @winery, wine)
           %td
             = wine.grape_type
           %td
@@ -32,6 +33,6 @@
           %td
             = wine.amount
           %td
-            = link_to "Delete Wine", wine_path(wine), method: :delete, data: {confirm: "You Sure?"}
+            = link_to "Delete Wine", region_winery_wine_path(@region, @winery, wine), method: :delete, data: {confirm: "You Sure?"}, class: "btn btn-danger"
           %td
-            = link_to "Edit Wine Information", edit_wine_path(wine)
+            = link_to "Edit Wine Information", edit_region_winery_wine_path(@region, @winery, wine), class: "btn btn-success"

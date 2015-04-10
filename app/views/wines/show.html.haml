@@ -2,7 +2,31 @@
   .page-header
     %h1
       ="#{current_user.full_name} "
-      = link_to "Edit Wine Information", edit_wine_path(@wine), class: "btn btn-danger pull-right"
-      = link_to "Delete", wine_path(@wine), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+      = link_to "Edit Wine Information", edit_region_winery_wine_path(@region, @winery, @wine), class: "btn btn-danger pull-right"
+      = link_to "Delete Wine",  region_winery_wine_path(@region, @winery, @wine), method: :delete, data: {confirm: "You Sure?"}, class: "btn btn-primary pull-right"
 
-      = link_to "Go Back", wines_path, class: "btn btn-primary pull-right"
+      = link_to "Go Back", region_winery_wines_path(@region, @winery), class: "btn btn-primary pull-right"
+  %h2
+    = link_to "#{@region.region_name} Region", regions_path
+    %br
+    = link_to "#{@winery.winery_name} Winery", region_wineries_path(@region)
+    %h3
+      = "#{@wine.bottle_name} Wine"
+      %br
+      %br
+      = "#{@wine.grape_type} Grapes"
+      %br
+      %br
+      = "#{@wine.taste}"
+      %br
+      %br
+      = "#{@wine.bottle_rating} out of 100"
+      %br
+      %br
+      = "Bottled in #{@wine.bottle_year}"
+      %br
+      %br
+      = "Bottled at #{@wine.winery.winery_name} Winery"
+      %br
+      %br
+      = "#{@wine.amount} Bottles Left"

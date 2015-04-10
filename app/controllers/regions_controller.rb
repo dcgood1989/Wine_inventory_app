@@ -1,5 +1,8 @@
 class RegionsController < ApplicationController
 before_action :get_all_wineries
+
+
+
   def index
     @regions = Region.all
   end
@@ -17,6 +20,7 @@ before_action :get_all_wineries
 
   def show
     @region = Region.find(params[:id])
+    @region_comment = RegionComment.new
   end
 
   def edit
@@ -44,7 +48,7 @@ before_action :get_all_wineries
 private
 
   def region_params
-    params.require(:region).permit(:region_name, :country, :state)
+    params.require(:region).permit(:region_name, :country, :state).merge(:user_id => current_user.id)
   end
 
   def get_all_wineries

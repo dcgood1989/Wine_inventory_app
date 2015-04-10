@@ -1,7 +1,7 @@
 .container
   .page-header
     %h2 #{current_user.full_name}, Add a New Wine to Your Inventory
-  = form_for @wine do |f|
+  = form_for [@region, @winery, @wine] do |f|
 
     .form-group
 
@@ -52,4 +52,4 @@
     .form-group
 
       = f.submit class: "btn btn-danger"
-      = link_to "Cancel", wines_path, class: "btn btn-success"
+      = link_to "Cancel", region_winery_wines_path, class: "btn btn-success"

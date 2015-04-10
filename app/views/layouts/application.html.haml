@@ -4,6 +4,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
 %body
   %nav.navbar.navbar-default.navbar-fixed-top
     .container
@@ -13,14 +14,20 @@
           %button.btn.btn-default{:type => "submit"} Submit
       %ul.nav.navbar-nav.navbar-right
         -if current_user
-          %li= link_to "#{current_user.first_name} #{current_user.last_name}", root_path
+          %li= link_to "#{current_user.first_name} #{current_user.last_name}", users_path
           %li= link_to 'Sign Out', sign_out_path
         -else
           %li= link_to 'Sign Up', sign_up_path
           %li= link_to 'Sign In', sign_in_path
-      = link_to "Latest Regions", regions_path, class:"navbar-brand"    
-      = link_to "Latest Wineries", wineries_path, class:"navbar-brand"
-      = link_to "Latest Wines", wines_path, class:"navbar-brand"
+
+      = link_to "All Regions", regions_path, class:"navbar-brand"
+
+
+      = link_to "All Wineries", wineriez_index_path, class:"navbar-brand"
+
+      = link_to "All Wines", winez_index_path, class:"navbar-brand"
+
+      = link_to ""
 
 
 
