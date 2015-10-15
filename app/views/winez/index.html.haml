@@ -18,20 +18,19 @@
       %tbody
         - @wineries.each do |winery|
           - winery.wines.each do |wine|
-            %tr
-              %td
-                = link_to wine.bottle_name, region_winery_wines_path(@region, winery)
-
-              %td
-                = wine.grape_type
-              %td
-                = wine.taste
-              %td
-                = wine.bottle_rating
-              %td
-                = wine.bottle_year
-              %td
-                = wine.winery_name
-              %td
-                = wine.amount
-            
+            - @region.each do |region|
+              %tr
+                %td
+                  = link_to wine.bottle_name, region_winery_wines_path(region, winery)
+                %td
+                  = wine.grape_type
+                %td
+                  = wine.taste
+                %td
+                  = wine.bottle_rating
+                %td
+                  = wine.bottle_year
+                %td
+                  = wine.winery_name
+                %td
+                  = wine.amount

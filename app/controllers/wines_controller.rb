@@ -46,7 +46,7 @@ end
 private
 
   def wine_params
-    params.require(:wine).permit(:bottle_name, :bottle_year, :taste, :grape_type, :bottle_rating, :price, :amount, :winery_name).merge(:user_id => current_user.id).merge(:region_id) 
+    params.require(:wine).permit(:bottle_name, :bottle_year, :taste, :grape_type, :bottle_rating, :price, :amount, :winery_name)
   end
 
 
