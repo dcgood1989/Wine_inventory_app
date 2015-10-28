@@ -8,10 +8,6 @@
 %body
   %nav.navbar.navbar-default.navbar-fixed-top
     .container
-      %form.navbar-form.navbar-right{:role => "search"}
-        .form-group
-          %input.form-control{:placeholder => "Search", :type => "text"}
-          %button.btn.btn-default{:type => "submit"} Submit
       %ul.nav.navbar-nav.navbar-right
         -if current_user
           %li= link_to "#{current_user.first_name} #{current_user.last_name}", users_path
@@ -19,7 +15,7 @@
         -else
           %li= link_to 'Sign Up', sign_up_path
           %li= link_to 'Sign In', sign_in_path
-  
+
 
       = link_to "All Regions", regions_path, class:"navbar-brand"
 

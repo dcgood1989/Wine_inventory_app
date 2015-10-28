@@ -5,7 +5,7 @@ class WinesController < ApplicationController
   # before_action :get_all_wineries
 
 def index
-  @wines = Wine.all
+  @wines = current_user.wines
 end
 
 def new

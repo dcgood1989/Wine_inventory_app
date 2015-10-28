@@ -1,13 +1,13 @@
 .container
   .page-header
-    = link_to "Edit Region Information", edit_region_path(@region), class: "btn btn-danger pull-right"
+    = link_to "Go Back", regions_path, class: "btn btn-info pull-right"
     = link_to "Delete Region", region_path(@region), method: :delete, data: {confirm: "Are you sure"}, class: "btn btn-primary pull-right"
+    = link_to "Edit Region Information", edit_region_path(@region), class: "btn btn-danger pull-right"
     %h1
-      = @region.region_name
-    = link_to "Go Back", regions_path, class: "btn btn-primary pull-right"
-    = link_to "Add New Winery to Region", new_region_winery_path(@region), class: "btn btn-primary pull-right"
+      = link_to "Add New Winery to Region", new_region_winery_path(@region), class: "btn btn-warning pull-right"
     %h3
       = @region.location
+      = @region.region_name
 
   %h2 Region Comments
   .comments

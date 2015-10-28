@@ -1,7 +1,7 @@
 class WineriezController < ApplicationController
 
   def index
-    @wineries = Winery.all
-    @regions = Region.all
+    @wineries = current_user.wineries
+    @regions = current_user.regions
   end
 end

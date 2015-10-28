@@ -4,7 +4,7 @@ before_action :get_all_wineries
 
 
   def index
-    @regions = Region.all
+    @regions = current_user.regions
   end
 
   def new

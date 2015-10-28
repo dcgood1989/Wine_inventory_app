@@ -1,4 +1,6 @@
 .container
+  =link_to "HOME", "/", class: "btn btn-success margin-top-button pull-right"
+
   %h1
     = "#{current_user.full_name}'s Complete Wine List"
 
@@ -34,3 +36,6 @@
                   = wine.winery_name
                 %td
                   = wine.amount
+                %td
+                  = link_to "Delete", region_winery_path(region, winery, wine), class: "btn btn-danger pull-right",  method: :delete
+                  = link_to "Edit Wine", edit_region_winery_path(region, winery, wine), class: "btn btn-primary pull-right"

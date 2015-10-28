@@ -1,8 +1,8 @@
 .container
-  =link_to "Add New Wine", new_region_winery_wine_path, class: "btn btn-danger margin-top-button pull-right"
-  = link_to "Back to Winery", region_wineries_path
+  =link_to "Add New Wine", new_region_winery_wine_path, class: "btn btn-warning margin-top-button pull-right"
+  = link_to "Back to Winery", region_wineries_path, class: "btn btn-info margin-top-button pull-right"
   %h1
-    = "#{current_user.full_name}'s Wine List for  #{@region.region_name}"
+    = "#{current_user.full_name}'s Wine List for the Region of #{@region.region_name} "
 
   %table.table
     %thead

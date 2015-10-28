@@ -1,12 +1,14 @@
 class WineriesController < ApplicationController
+
   before_action do
     @region = Region.find(params[:region_id])
   end
+
   before_action :get_all_regions
 
 
   def index
-    @wineries = @region.wineries
+    @wineries = current_user.wineries
   end
 
   def new

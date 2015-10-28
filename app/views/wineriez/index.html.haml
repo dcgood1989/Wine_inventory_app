@@ -1,4 +1,6 @@
 .container
+  =link_to "HOME", "/", class: "btn btn-success margin-top-button pull-right"
+
   .page-header
     %h1
       = "Welcome #{current_user.full_name} to your complete Wineries List"
@@ -11,14 +13,11 @@
             %th{colspan:2}
               Winery Location
         %tbody
-
           - @regions.each do |region|
             %tr
               %td
                 = link_to winery.winery_name, region_winery_path(region, winery)
-
               %td
                 = winery.state
                 = link_to "Delete", region_winery_path(region, winery), class: "btn btn-danger pull-right",  method: :delete
-              %td
                 = link_to "Edit Winery", edit_region_winery_path(region, winery), class: "btn btn-primary pull-right"

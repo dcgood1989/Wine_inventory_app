@@ -6,6 +6,7 @@ class Region < ActiveRecord::Base
   has_many :region_comments
   has_many :winery_comments
   has_many :wine_comments
+  
 
   def location
     "#{state}, #{country}"
