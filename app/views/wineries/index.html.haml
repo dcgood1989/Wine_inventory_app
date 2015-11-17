@@ -1,6 +1,7 @@
 .container
 
   =link_to "New Winery", new_region_winery_path, class: "btn btn-danger margin-top-button pull-right"
+
   %h1
     #{current_user.full_name} Wineries
 
@@ -14,6 +15,7 @@
         %th.text-left
           Winery Rating
         %th
+          -# = link_to "Add New Wine", new_region_winery_wine_path(region, winery), class: "btn btn-primary pull-right"
         %th
     %tbody
 
