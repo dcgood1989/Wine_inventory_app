@@ -4,16 +4,15 @@
   .page-header
     %h1
       = "Welcome #{current_user.full_name} to your complete Wineries List"
-    - @wineries.each do |winery|
       %table.table
         %thead
           %tr
             %th
               Winery Name
-            %th{colspan:2}
+            %th
               Winery Location
         %tbody
-          - @regions.each do |region|
+          - @region.winerys.each do |winery|
             %tr
               %td
                 = link_to winery.winery_name, region_winery_path(region, winery)
